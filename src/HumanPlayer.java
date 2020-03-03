@@ -4,6 +4,8 @@ public class HumanPlayer implements Human, Player
     private GameLogic game;
     private UI actualHuman; // ui to be used
 
+    public HumanPlayer(){ actualHuman = new TextUI(); }
+
     /* setAnswer
      * purpose - sends the column chosen by the actual
      *           player to the GameLogic
@@ -16,7 +18,7 @@ public class HumanPlayer implements Human, Player
     }// end setAnswer
 
     /* lastMove
-     * Purpose - 
+     * Purpose -
      * @param col - the column of the last move made by the opposite player
      *
      */
