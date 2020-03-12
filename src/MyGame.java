@@ -39,7 +39,17 @@ public class MyGame implements GameLogic
      */
     public void setAnswer(int col)
     {
-        // todo: write code
+        if(isHuman) // since the human played its now AI's turn
+        {
+            isHuman = false;
+            computer.lastMove(col);
+        }
+        else // AI played and now its human's turn
+        {
+            isHuman = true;
+            human.lastMove(col);
+
+        }
     }// setAnswer
 
     /* generateBoardSize
