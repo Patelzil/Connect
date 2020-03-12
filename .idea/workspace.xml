@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89db6aa3-fe76-42f5-8417-e034e0633adc" name="Default Changelist" comment="">
+    <list default="true" id="89db6aa3-fe76-42f5-8417-e034e0633adc" name="Default Changelist" comment="Set the main class up to run the game.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HumanPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,12 +32,27 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager">
+    <configuration name="A3Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="A3Main" />
+      <module name="Connect" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.A3Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -63,17 +78,115 @@
       <updated>1582869996744</updated>
       <workItem from="1582870000408" duration="2678000" />
       <workItem from="1583016169817" duration="3908000" />
-      <workItem from="1583195708413" duration="3497000" />
+      <workItem from="1583195708413" duration="6027000" />
+      <workItem from="1583905832459" duration="378000" />
+      <workItem from="1584050850092" duration="4762000" />
     </task>
+    <task id="LOCAL-00001" summary="Created the Human and AI player classes and its layout">
+      <created>1583200512818</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583200512818</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Set the main class up to run the game.">
+      <created>1583201290842</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583201290842</updated>
+    </task>
+    <task id="LOCAL-00003" summary="MyGame created, it implements GameLogic">
+      <created>1583201506960</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583201506960</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Board size generated and runGame process written as comments.">
+      <created>1583202790270</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1583202790270</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Main method comment">
+      <created>1584051083681</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584051083681</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added private method playColumn that chooses the column the AI will play at">
+      <created>1584052181715</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584052181715</updated>
+    </task>
+    <task id="LOCAL-00007" summary="choosePlayer added to choose which player starts playing first">
+      <created>1584052924817</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1584052924817</updated>
+    </task>
+    <task id="LOCAL-00008" summary="setAnswer in MyGame written to help alternate between the 2 players.">
+      <created>1584053377522</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1584053377522</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created the Human and AI player classes and its layout" />
+    <MESSAGE value="Set the main class up to run the game." />
+    <MESSAGE value="MyGame created, it implements GameLogic" />
+    <MESSAGE value="Board size generated and runGame process written as comments." />
+    <MESSAGE value="Main method comment" />
+    <MESSAGE value="Added private method playColumn that chooses the column the AI will play at" />
+    <MESSAGE value="choosePlayer added to choose which player starts playing first" />
+    <MESSAGE value="setAnswer in MyGame written to help alternate between the 2 players." />
+    <option name="LAST_COMMIT_MESSAGE" value="setAnswer in MyGame written to help alternate between the 2 players." />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="349" y="168" key="com.intellij.ide.util.TipDialog" timestamp="1583196935420">
+    <state x="233" y="2" key="#Notifications" timestamp="1583202838910">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="349" y="168" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1583196935420" />
+    <state x="233" y="2" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1583202838910" />
+    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1584053376967">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584053376967" />
+    <state width="1237" height="477" key="GridCell.Tab.0.bottom" timestamp="1584056608085">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="477" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584056608085" />
+    <state width="1237" height="477" key="GridCell.Tab.0.center" timestamp="1584056608085">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="477" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584056608085" />
+    <state width="1237" height="477" key="GridCell.Tab.0.left" timestamp="1584056608085">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="477" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584056608085" />
+    <state width="1237" height="477" key="GridCell.Tab.0.right" timestamp="1584056608085">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="477" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584056608085" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1583202807897">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1583202807897" />
+    <state x="349" y="168" key="com.intellij.ide.util.TipDialog" timestamp="1584050851384">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="349" y="168" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584050851384" />
   </component>
 </project>

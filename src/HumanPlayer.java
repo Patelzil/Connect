@@ -1,6 +1,6 @@
 public class HumanPlayer implements Human, Player
 {
-    private int boardSize;
+    //private int boardSize;
     private GameLogic game;
     private UI actualHuman; // ui to be used
 
@@ -47,7 +47,8 @@ public class HumanPlayer implements Human, Player
      */
     public void setInfo(int size, GameLogic gl)
     {
-        boardSize = size;
+        //boardSize = size;
         game = gl;
+        actualHuman.setInfo(this,size);
     }// end setInfo
 }// class HumanPlayer

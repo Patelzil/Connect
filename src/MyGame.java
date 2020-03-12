@@ -27,13 +27,12 @@ public class MyGame implements GameLogic
         // chooses which player starts the game
         choosePlayer();
 
-        // todo: alternate between the players
-
         // todo:determine if the player wins or if there is a draw and then inform the player
     }// end runGame
 
     /* setAnswer
      * purpose - called by the player after the player has determined their move
+     *          helps in alternating the players.
      * @param col - the col played by the actual human
      *
      */
@@ -65,8 +64,9 @@ public class MyGame implements GameLogic
     }// end generateBoardSize
 
     /* choosePlayer
-     * Purpose - randomly selects which player will start the game
-     *          and set the value of isHuman accordingly
+     * Purpose -1) randomly selects which player will start the game
+     *          2) set the value of isHuman accordingly
+     *          2) send -1 as the lastMove to the selected player
      */
     private void choosePlayer()
     {
@@ -77,11 +77,13 @@ public class MyGame implements GameLogic
         {
             isHuman = false;
             System.out.println("AI player started the game.");
+            computer.lastMove(-1); // -1 since its the first move of the game
         }
         else // Human chosen
         {
             isHuman = true;
             System.out.println("Human players starts the game.");
+            human.lastMove(-1); // -1 since its the first move of the game
         }
-    }
+    }// end choosePlayer
 }// class MyGame
