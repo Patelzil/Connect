@@ -34,7 +34,16 @@ public class HumanPlayer implements Human, Player
      */
     public void gameOver(Status winner)
     {
-        // todo: write code
+        if(winner == Status.ONE)
+        {
+            System.out.println("Player one wins!");
+            System.exit(0);
+        }
+        else if(winner == Status.TWO)
+        {
+            System.out.println("Player two wins!");
+            System.exit(0);
+        }
     }// end gameOver
 
 

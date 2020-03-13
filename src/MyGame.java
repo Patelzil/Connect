@@ -39,6 +39,7 @@ public class MyGame implements GameLogic
      */
     public void setAnswer(int col)
     {
+        findWinner(); // check for the winner
         int row = findRow(col);
         if(status == Status.ONE) // since the human played its now AI's turn
         {
@@ -55,13 +56,93 @@ public class MyGame implements GameLogic
     }// setAnswer
 
     /* findWinner
-     * Purpose - search for the winner and let the players know
-     *           if a winner is found.
-     *
+     * Purpose - search for the winner
+     *           (by going through the entire board from bottom to up
+     *           to ensure minimal iterations over the whole board as
+     *           the board gets filled up from down)
+     *           and let the players know if a winner is found.
      */
     private void findWinner()
     {
+        // check vertically (from bottom of the board going up)
+        for (int i = myBoard.length-1; i >= 3; i--)
+        {
+            for (int j = myBoard.length-1; j >= 0; j--)
+            {
+                if(myBoard[i][j] == Status.ONE && myBoard[i][j] == myBoard[i-1][j]
+                        && myBoard[i][j]== myBoard[i-2][j] && myBoard[i][j] == myBoard[i-3][j])
+                {
+                    human.gameOver(Status.ONE);
+                    computer.gameOver(Status.ONE);
+                }
+                else if(myBoard[i][j] == Status.TWO && myBoard[i][j] == myBoard[i-1][j]
+                        && myBoard[i][j]== myBoard[i-2][j] && myBoard[i][j] == myBoard[i-3][j])
+                {
+                    human.gameOver(Status.TWO);
+                    computer.gameOver(Status.TWO);
+                }
+            }
+        }
 
+        // check horizontally
+        for (int i = myBoard.length-1; i >= 0; i--)
+        {
+            for (int j = myBoard.length-1; j >= 3; j--)
+            {
+                if(myBoard[i][j] == Status.ONE && myBoard[i][j] == myBoard[i][j-1]
+                        && myBoard[i][j]== myBoard[i][j-2] && myBoard[i][j] == myBoard[i][j-3])
+                {
+                    human.gameOver(Status.ONE);
+                    computer.gameOver(Status.ONE);
+                }
+                else if(myBoard[i][j] == Status.TWO && myBoard[i][j] == myBoard[i][j-1]
+                        && myBoard[i][j]== myBoard[i][j-2] && myBoard[i][j] == myBoard[i][j-3])
+                {
+                    human.gameOver(Status.TWO);
+                    computer.gameOver(Status.TWO);
+                }
+            }
+        }
+
+        // check for diagonal(moving upwards towards the left)
+        for (int i = myBoard.length-1; i >= 3; i--)
+        {
+            for (int j = myBoard.length-1; j >= 3; j--)
+            {
+                if(myBoard[i][j] == Status.ONE && myBoard[i][j] == myBoard[i-1][j-1]
+                        && myBoard[i][j]== myBoard[i-2][j-2] && myBoard[i][j] == myBoard[i-3][j-3])
+                {
+                    human.gameOver(Status.ONE);
+                    computer.gameOver(Status.ONE);
+                }
+                else if(myBoard[i][j] == Status.TWO && myBoard[i][j] == myBoard[i-1][j-1]
+                        && myBoard[i][j]== myBoard[i-2][j-2] && myBoard[i][j] == myBoard[i-3][j-3])
+                {
+                    human.gameOver(Status.TWO);
+                    computer.gameOver(Status.TWO);
+                }
+            }
+        }
+
+        // check for diagonal (moving upwards towards the right)
+        for (int i = myBoard.length-1; i >= 3; i--)
+        {
+            for (int j = myBoard.length-1; j >= 0; j--)
+            {
+                if(myBoard[i][j] == Status.ONE && myBoard[i][j] == myBoard[i-1][j+1]
+                        && myBoard[i][j]== myBoard[i-2][j+2] && myBoard[i][j] == myBoard[i-3][j+3])
+                {
+                    human.gameOver(Status.ONE);
+                    computer.gameOver(Status.ONE);
+                }
+                else if(myBoard[i][j] == Status.TWO && myBoard[i][j] == myBoard[i-1][j+1]
+                        && myBoard[i][j]== myBoard[i-2][j+2] && myBoard[i][j] == myBoard[i-3][j+3])
+                {
+                    human.gameOver(Status.TWO);
+                    computer.gameOver(Status.TWO);
+                }
+            }
+        }
     }// end findWinner
 
 
@@ -110,7 +191,7 @@ public class MyGame implements GameLogic
             System.out.println("Human players starts the game.");
             human.lastMove(-1); // -1 since its the first move of the game
         }
-        else // AI chosen
+        else if(num==2) // AI chosen
         {
             status = Status.TWO;
             System.out.println("AI player started the game.");

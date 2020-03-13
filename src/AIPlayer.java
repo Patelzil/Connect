@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class AIPlayer implements Player
 {
     private int boardSize;
@@ -21,6 +23,16 @@ public class AIPlayer implements Player
      */
     public void gameOver(Status winner)
     {
+        if(winner == Status.ONE)
+        {
+            System.out.println("Player one wins!");
+            System.exit(0);
+        }
+        else if(winner == Status.TWO)
+        {
+            System.out.println("Player two wins!");
+            System.exit(0);
+        }
         // todo: write code
     }// end gameOver
 
@@ -46,7 +58,8 @@ public class AIPlayer implements Player
      */
     private int playColumn(int col)
     {
-        // todo: write AI Code
-        return 0;
+        Random ran = new Random();
+        return ( ran.nextInt(boardSize));
+//        return 0;
     }// end playColumn
 }//class AIPlayer

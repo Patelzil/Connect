@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="89db6aa3-fe76-42f5-8417-e034e0633adc" name="Default Changelist" comment="Set the main class up to run the game.">
+    <list default="true" id="89db6aa3-fe76-42f5-8417-e034e0633adc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HumanPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyGame.java" afterDir="false" />
     </list>
@@ -66,6 +67,9 @@
       </list>
     </option>
   </component>
+  <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_MODE" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -80,7 +84,8 @@
       <workItem from="1583016169817" duration="3908000" />
       <workItem from="1583195708413" duration="6027000" />
       <workItem from="1583905832459" duration="378000" />
-      <workItem from="1584050850092" duration="4762000" />
+      <workItem from="1584050850092" duration="13828000" />
+      <workItem from="1584078833226" duration="8176000" />
     </task>
     <task id="LOCAL-00001" summary="Created the Human and AI player classes and its layout">
       <created>1583200512818</created>
@@ -138,11 +143,45 @@
       <option name="project" value="LOCAL" />
       <updated>1584053377522</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="So far board size is chosen, random player is selected and the game is able to alternate between 2 players as required.">
+      <created>1584056917241</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1584056917241</updated>
+    </task>
+    <task id="LOCAL-00010" summary="used status to alternate players">
+      <created>1584058415167</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1584058415167</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Board added in MyGame to track for the winner">
+      <created>1584066822865</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1584066822865</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created the Human and AI player classes and its layout" />
@@ -153,40 +192,43 @@
     <MESSAGE value="Added private method playColumn that chooses the column the AI will play at" />
     <MESSAGE value="choosePlayer added to choose which player starts playing first" />
     <MESSAGE value="setAnswer in MyGame written to help alternate between the 2 players." />
-    <option name="LAST_COMMIT_MESSAGE" value="setAnswer in MyGame written to help alternate between the 2 players." />
+    <MESSAGE value="So far board size is chosen, random player is selected and the game is able to alternate between 2 players as required." />
+    <MESSAGE value="used status to alternate players" />
+    <MESSAGE value="Board added in MyGame to track for the winner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Board added in MyGame to track for the winner" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="2" key="#Notifications" timestamp="1583202838910">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="2" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1583202838910" />
-    <state x="277" y="0" key="CommitChangelistDialog2" timestamp="1584053376967">
+    <state x="117" y="0" key="CommitChangelistDialog2" timestamp="1584066820893">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="277" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584053376967" />
-    <state width="1237" height="477" key="GridCell.Tab.0.bottom" timestamp="1584056608085">
+    <state x="117" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584066820893" />
+    <state width="1237" height="11" key="GridCell.Tab.0.bottom" timestamp="1584089500840">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="477" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584056608085" />
-    <state width="1237" height="477" key="GridCell.Tab.0.center" timestamp="1584056608085">
+    <state width="1237" height="11" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584089500840" />
+    <state width="1237" height="11" key="GridCell.Tab.0.center" timestamp="1584089500840">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="477" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584056608085" />
-    <state width="1237" height="477" key="GridCell.Tab.0.left" timestamp="1584056608085">
+    <state width="1237" height="11" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584089500840" />
+    <state width="1237" height="11" key="GridCell.Tab.0.left" timestamp="1584089500840">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="477" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584056608085" />
-    <state width="1237" height="477" key="GridCell.Tab.0.right" timestamp="1584056608085">
+    <state width="1237" height="11" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584089500840" />
+    <state width="1237" height="11" key="GridCell.Tab.0.right" timestamp="1584089500840">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="477" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584056608085" />
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1583202807897">
+    <state width="1237" height="11" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584089500840" />
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1584078940076">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1583202807897" />
-    <state x="349" y="168" key="com.intellij.ide.util.TipDialog" timestamp="1584050851384">
+    <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1584078940076" />
+    <state x="349" y="168" key="com.intellij.ide.util.TipDialog" timestamp="1584078931219">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="349" y="168" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584050851384" />
+    <state x="349" y="168" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584078931219" />
   </component>
 </project>
