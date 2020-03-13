@@ -4,8 +4,9 @@ public class MyGame implements GameLogic
 {
     private AIPlayer computer;
     private HumanPlayer human;
-    private Status status; // if true then its human's turn to play
-                                    // if false then AI's turn
+    private Status status; // if ONE then its human's turn to play
+                           // if TWO then AI's turn
+    private Status[][] myBoard; // to keep track of our board/game
 
     public MyGame()
     {
@@ -21,6 +22,7 @@ public class MyGame implements GameLogic
         // randomly generates the board size(btn 6-12)
         // and send the information to the players
         int size = generateBoardSize();
+        initializeBoard(size);
         computer.setInfo(size, this);
         human.setInfo(size,this);
 
@@ -34,26 +36,53 @@ public class MyGame implements GameLogic
      * purpose - called by the player after the player has determined their move
      *          helps in alternating the players.
      * @param col - the col played by the actual human
-     *
      */
     public void setAnswer(int col)
     {
+        int row = findRow(col);
         if(status == Status.ONE) // since the human played its now AI's turn
         {
+            myBoard[row][col] = Status.ONE; // set to human player at that location on the board
             status = Status.TWO;
             computer.lastMove(col);
         }
         else // AI played and now its human's turn
         {
+            myBoard[row][col] = Status.TWO; // set to AI player at that location on the board
             status = Status.ONE;
             human.lastMove(col);
-
         }
     }// setAnswer
 
-    /* generateBoardSize
-     * Purpose - randomly generates the board size and returns it
+    /* findWinner
+     * Purpose - search for the winner and let the players know
+     *           if a winner is found.
      *
+     */
+    private void findWinner()
+    {
+
+    }// end findWinner
+
+
+    /* findRow (cite: drop method given by prof in TextUI.java)
+     * Purpose - finds the position of last play when it is dropped in a column.
+     * @param col - the column where the piece is dropped
+     * @return the row where the piece lands
+     */
+    private int findRow(int col)
+    {
+        int row = 0;
+        while (row < myBoard.length && myBoard[row][col] == Status.NEITHER)
+        {
+            row ++;
+        }
+        return row-1;
+    }// end findRow
+
+    /* generateBoardSize
+     * Purpose - randomly generates the board size
+     * @return the size of the board
      */
     private int generateBoardSize()
     {
@@ -88,4 +117,20 @@ public class MyGame implements GameLogic
             computer.lastMove(-1); // -1 since its the first move of the game
         }
     }// end choosePlayer
+
+    /* initializeBoard
+     * Purpose - initializes the board and sets all
+     *          the locations to Status.NEITHER
+     */
+    private void initializeBoard(int size)
+    {
+        myBoard = new Status[size][size];
+        for (int i = 0; i < size ; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                myBoard[i][j] = Status.NEITHER;
+            }
+        }
+    }// end initializeBoard
 }// class MyGame
