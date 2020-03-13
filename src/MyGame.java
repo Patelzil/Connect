@@ -4,7 +4,7 @@ public class MyGame implements GameLogic
 {
     private AIPlayer computer;
     private HumanPlayer human;
-    private static boolean isHuman; // if true then its human's turn to play
+    private Status status; // if true then its human's turn to play
                                     // if false then AI's turn
 
     public MyGame()
@@ -38,14 +38,14 @@ public class MyGame implements GameLogic
      */
     public void setAnswer(int col)
     {
-        if(isHuman) // since the human played its now AI's turn
+        if(status == Status.ONE) // since the human played its now AI's turn
         {
-            isHuman = false;
+            status = Status.TWO;
             computer.lastMove(col);
         }
         else // AI played and now its human's turn
         {
-            isHuman = true;
+            status = Status.ONE;
             human.lastMove(col);
 
         }
@@ -70,20 +70,22 @@ public class MyGame implements GameLogic
      */
     private void choosePlayer()
     {
+        int max = 2;
+        int min = 1;
         Random ran = new Random();
-        int num = ran.nextInt(2); // randomly chooses 0 or 1
+        int num = ran.nextInt((max-min) + 1) + min; // randomly chooses 1 or 2
 
-        if(num == 0) // AI chosen
+        if(num == 1)// Human chosen
         {
-            isHuman = false;
-            System.out.println("AI player started the game.");
-            computer.lastMove(-1); // -1 since its the first move of the game
-        }
-        else // Human chosen
-        {
-            isHuman = true;
+            status = Status.ONE;
             System.out.println("Human players starts the game.");
             human.lastMove(-1); // -1 since its the first move of the game
+        }
+        else // AI chosen
+        {
+            status = Status.TWO;
+            System.out.println("AI player started the game.");
+            computer.lastMove(-1); // -1 since its the first move of the game
         }
     }// end choosePlayer
 }// class MyGame
