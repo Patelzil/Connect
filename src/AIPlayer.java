@@ -61,4 +61,15 @@ public class AIPlayer implements Player
         return ( ran.nextInt(boardSize));
 //        return 0;
     }// end playColumn
+
+    /* verifyCol
+     * Purpose- private helper method to determine if an integer is a valid col
+     * @param col - integer (potential column number)
+     * @return - is the column valid?
+     */
+    private boolean verifyCol(int col)
+    {
+        return (col >= 0 && col < boardSize);
+    }// end verifyCol
+
 }//class AIPlayer

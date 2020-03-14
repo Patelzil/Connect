@@ -4,8 +4,6 @@
     <list default="true" id="89db6aa3-fe76-42f5-8417-e034e0633adc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HumanPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,8 @@
       <workItem from="1583195708413" duration="6027000" />
       <workItem from="1583905832459" duration="378000" />
       <workItem from="1584050850092" duration="13828000" />
-      <workItem from="1584078833226" duration="8176000" />
+      <workItem from="1584078833226" duration="8548000" />
+      <workItem from="1584165773679" duration="3858000" />
     </task>
     <task id="LOCAL-00001" summary="Created the Human and AI player classes and its layout">
       <created>1583200512818</created>
@@ -164,7 +163,21 @@
       <option name="project" value="LOCAL" />
       <updated>1584066822865</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Able to find the winner">
+      <created>1584089570647</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1584089570647</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Refactoring">
+      <created>1584169293592</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1584169293592</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,40 +208,62 @@
     <MESSAGE value="So far board size is chosen, random player is selected and the game is able to alternate between 2 players as required." />
     <MESSAGE value="used status to alternate players" />
     <MESSAGE value="Board added in MyGame to track for the winner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Board added in MyGame to track for the winner" />
+    <MESSAGE value="Able to find the winner" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="2" key="#Notifications" timestamp="1583202838910">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="2" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1583202838910" />
-    <state x="117" y="0" key="CommitChangelistDialog2" timestamp="1584066820893">
+    <state x="117" y="0" key="CommitChangelistDialog2" timestamp="1584169292954">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="117" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584066820893" />
-    <state width="1237" height="11" key="GridCell.Tab.0.bottom" timestamp="1584089500840">
+    <state x="117" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584169292954" />
+    <state width="1237" height="2" key="GridCell.Tab.0.bottom" timestamp="1584169376563">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="11" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584089500840" />
-    <state width="1237" height="11" key="GridCell.Tab.0.center" timestamp="1584089500840">
+    <state width="1237" height="2" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584169376563" />
+    <state width="1237" height="2" key="GridCell.Tab.0.center" timestamp="1584169376563">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="11" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584089500840" />
-    <state width="1237" height="11" key="GridCell.Tab.0.left" timestamp="1584089500840">
+    <state width="1237" height="2" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584169376563" />
+    <state width="1237" height="2" key="GridCell.Tab.0.left" timestamp="1584169376562">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="11" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584089500840" />
-    <state width="1237" height="11" key="GridCell.Tab.0.right" timestamp="1584089500840">
+    <state width="1237" height="2" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584169376562" />
+    <state width="1237" height="2" key="GridCell.Tab.0.right" timestamp="1584169376563">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="11" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584089500840" />
+    <state width="1237" height="2" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584169376563" />
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1584166834933">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584166834933" />
+    <state width="1237" height="204" key="GridCell.Tab.1.center" timestamp="1584166834933">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1584166834933" />
+    <state width="1237" height="204" key="GridCell.Tab.1.left" timestamp="1584166834933">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1584166834933" />
+    <state width="1237" height="204" key="GridCell.Tab.1.right" timestamp="1584166834933">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1584166834933" />
     <state x="233" y="76" key="Vcs.Push.Dialog.v2" timestamp="1584078940076">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1584078940076" />
-    <state x="349" y="168" key="com.intellij.ide.util.TipDialog" timestamp="1584078931219">
+    <state x="349" y="168" key="com.intellij.ide.util.TipDialog" timestamp="1584165778483">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="349" y="168" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584078931219" />
+    <state x="349" y="168" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584165778483" />
+    <state x="397" y="160" key="extract.method.dialog" timestamp="1584166287702">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="397" y="160" key="extract.method.dialog/0.0.1280.680@0.0.1280.680" timestamp="1584166287702" />
   </component>
 </project>
