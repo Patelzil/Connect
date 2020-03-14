@@ -39,17 +39,19 @@ public class MyGame implements GameLogic
      */
     public void setAnswer(int col)
     {
-        findWinner(); // check for the winner
+
         int row = findRow(col);
         if(status == Status.ONE) // since the human played its now AI's turn
         {
             myBoard[row][col] = Status.ONE; // set to human player at that location on the board
+            findWinner(Status.ONE, row, col); // check for the winner
             status = Status.TWO;
             computer.lastMove(col);
         }
         else // AI played and now its human's turn
         {
             myBoard[row][col] = Status.TWO; // set to AI player at that location on the board
+            findWinner(Status.TWO, row, col); // check for the winner
             status = Status.ONE;
             human.lastMove(col);
         }
@@ -57,96 +59,105 @@ public class MyGame implements GameLogic
 
     /* findWinner
      * Purpose - search for the winner
-     *           (by going through the entire board from bottom to up
-     *           to ensure minimal iterations over the whole board as
-     *           the board gets filled up from down)
-     *           and let the players know if a winner is found.
+     *    (by going through the entire board from bottom to up
+     *    to ensure minimal iterations over the whole board as
+     *    the board gets filled up from down)
+     *    and let the players know if a winner is found.
+     *    4 cases: Vertically, horizontally, diagonal towards left, diagonal towards right
      */
-    private void findWinner()
+    private void findWinner(Status s, int row, int col)
     {
         // check vertically (from bottom of the board going up)
+        checkVertically(s,row,col);
+        // check horizontally
+        checkHorizontally(s);
+        // check for diagonal(moving upwards towards the left)
+        checkLeftDiagonal(s);
+        // check for diagonal (moving upwards towards the right)
+        checkRightDiagonal(s);
+    }// end findWinner
+
+    /* checkVertically
+     * Purpose - checks the board vertically (from bottom of the board going up)
+     *
+     */
+    private void checkVertically(Status st, int row, int col)
+    {
         for (int i = myBoard.length-1; i >= 3; i--)
         {
             for (int j = myBoard.length-1; j >= 0; j--)
             {
-                if(myBoard[i][j] == Status.ONE && myBoard[i][j] == myBoard[i-1][j]
+                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i-1][j]
                         && myBoard[i][j]== myBoard[i-2][j] && myBoard[i][j] == myBoard[i-3][j])
                 {
-                    human.gameOver(Status.ONE);
-                    computer.gameOver(Status.ONE);
-                }
-                else if(myBoard[i][j] == Status.TWO && myBoard[i][j] == myBoard[i-1][j]
-                        && myBoard[i][j]== myBoard[i-2][j] && myBoard[i][j] == myBoard[i-3][j])
-                {
-                    human.gameOver(Status.TWO);
-                    computer.gameOver(Status.TWO);
+                    human.gameOver(st);
+                    computer.gameOver(st);
                 }
             }
         }
+    }// end checkVertically
 
-        // check horizontally
+    /* checkHorizontally
+     * Purpose -  checks the board horizontally for the winner
+     *
+     */
+    private void checkHorizontally(Status st)
+    {
         for (int i = myBoard.length-1; i >= 0; i--)
         {
             for (int j = myBoard.length-1; j >= 3; j--)
             {
-                if(myBoard[i][j] == Status.ONE && myBoard[i][j] == myBoard[i][j-1]
+                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i][j-1]
                         && myBoard[i][j]== myBoard[i][j-2] && myBoard[i][j] == myBoard[i][j-3])
                 {
-                    human.gameOver(Status.ONE);
-                    computer.gameOver(Status.ONE);
-                }
-                else if(myBoard[i][j] == Status.TWO && myBoard[i][j] == myBoard[i][j-1]
-                        && myBoard[i][j]== myBoard[i][j-2] && myBoard[i][j] == myBoard[i][j-3])
-                {
-                    human.gameOver(Status.TWO);
-                    computer.gameOver(Status.TWO);
+                    human.gameOver(st);
+                    computer.gameOver(st);
                 }
             }
         }
+    }// end checkHorizontally
 
-        // check for diagonal(moving upwards towards the left)
+    /* checkLeftDiagonal
+     * Purpose - check the board diagonally(moving upwards towards the left)
+     *
+     */
+    private void checkLeftDiagonal(Status st)
+    {
         for (int i = myBoard.length-1; i >= 3; i--)
         {
             for (int j = myBoard.length-1; j >= 3; j--)
             {
-                if(myBoard[i][j] == Status.ONE && myBoard[i][j] == myBoard[i-1][j-1]
+                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i-1][j-1]
                         && myBoard[i][j]== myBoard[i-2][j-2] && myBoard[i][j] == myBoard[i-3][j-3])
                 {
-                    human.gameOver(Status.ONE);
-                    computer.gameOver(Status.ONE);
-                }
-                else if(myBoard[i][j] == Status.TWO && myBoard[i][j] == myBoard[i-1][j-1]
-                        && myBoard[i][j]== myBoard[i-2][j-2] && myBoard[i][j] == myBoard[i-3][j-3])
-                {
-                    human.gameOver(Status.TWO);
-                    computer.gameOver(Status.TWO);
+                    human.gameOver(st);
+                    computer.gameOver(st);
                 }
             }
         }
+    }// end checkLeftDiagonal
 
-        // check for diagonal (moving upwards towards the right)
+    /* checkRightDiagonal
+     * Purpose - check the board diagonally(moving upwards towards the right)
+     *
+     */
+    private void checkRightDiagonal(Status st)
+    {
         for (int i = myBoard.length-1; i >= 3; i--)
         {
-            for (int j = myBoard.length-1; j >= 0; j--)
+            for (int j = myBoard.length-3; j >= 0; j--)
             {
-                if(myBoard[i][j] == Status.ONE && myBoard[i][j] == myBoard[i-1][j+1]
+                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i-1][j+1]
                         && myBoard[i][j]== myBoard[i-2][j+2] && myBoard[i][j] == myBoard[i-3][j+3])
                 {
-                    human.gameOver(Status.ONE);
-                    computer.gameOver(Status.ONE);
-                }
-                else if(myBoard[i][j] == Status.TWO && myBoard[i][j] == myBoard[i-1][j+1]
-                        && myBoard[i][j]== myBoard[i-2][j+2] && myBoard[i][j] == myBoard[i-3][j+3])
-                {
-                    human.gameOver(Status.TWO);
-                    computer.gameOver(Status.TWO);
+                    human.gameOver(st);
+                    computer.gameOver(st);
                 }
             }
         }
-    }// end findWinner
+    }// end checkRightDiagonal
 
-
-    /* findRow (cite: drop method given by prof in TextUI.java)
+    /* findRow
      * Purpose - finds the position of last play when it is dropped in a column.
      * @param col - the column where the piece is dropped
      * @return the row where the piece lands

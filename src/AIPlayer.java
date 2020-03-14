@@ -33,7 +33,6 @@ public class AIPlayer implements Player
             System.out.println("Player two wins!");
             System.exit(0);
         }
-        // todo: write code
     }// end gameOver
 
 
