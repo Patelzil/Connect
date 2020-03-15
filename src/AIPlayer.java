@@ -1,9 +1,11 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class AIPlayer implements Player
 {
     private int boardSize;
     private GameLogic game;
+    private Status[][] AIBoard;
 
     /* lastMove
      * Purpose - chooses the column to make a move and then sends to the GameLogic
@@ -12,28 +14,29 @@ public class AIPlayer implements Player
      */
     public void lastMove(int col)
     {
+        if (col != -1)
+        {
+            int posn = drop(col);
+            AIBoard[posn][col] = Status.ONE; // this is the human's move, so it's ONE.
+        }
+
         int num = playColumn(col);
+        while (!verifyCol(num))
+        {
+            num = playColumn(col);
+        }
+
+        int row = drop(num);
+        AIBoard[row][num] = Status.TWO;
         game.setAnswer(num);
     }// end lastMove
 
     /* gameOver
-     * Purpose - called when the game ends to show which player won
+     * Purpose - gives the message to the AI that one of the two players won
      * @param winner - gives the result of the game
      *
      */
-    public void gameOver(Status winner)
-    {
-        if(winner == Status.ONE)
-        {
-            System.out.println("Player one wins!");
-            System.exit(0);
-        }
-        else if(winner == Status.TWO)
-        {
-            System.out.println("Player two wins!");
-            System.exit(0);
-        }
-    }// end gameOver
+    public void gameOver(Status winner) { }// end gameOver
 
 
     /* setInfo
@@ -47,6 +50,10 @@ public class AIPlayer implements Player
     {
         boardSize = size;
         game = gl;
+        AIBoard = new Status[boardSize][boardSize];
+        for (Status[] s : AIBoard) {
+            Arrays.fill(s, Status.NEITHER);
+        }
     }// end setInfo
 
     /* playColumn
@@ -62,14 +69,29 @@ public class AIPlayer implements Player
 //        return 0;
     }// end playColumn
 
-    /* verifyCol
-     * Purpose- private helper method to determine if an integer is a valid col
+    /**
+     * verifyCol - private helper method to determine if an integer is a valid
+     * column that still has spots left.
      * @param col - integer (potential column number)
      * @return - is the column valid?
      */
-    private boolean verifyCol(int col)
-    {
-        return (col >= 0 && col < boardSize);
-    }// end verifyCol
+    private boolean verifyCol(int col) {
+        return (col >= 0 && col < AIBoard[0].length && AIBoard[0][col] == Status.NEITHER);
+    }
 
+    /**
+     * drop - a private helper method that finds the position of a marker
+     * when it is dropped in a column.
+     * @param col the column where the piece is dropped
+     * @return the row where the piece lands
+     */
+    private int drop(  int col)
+    {
+        int posn = 0;
+        while (posn < AIBoard.length && AIBoard[posn][col] == Status.NEITHER)
+        {
+            posn ++;
+        }
+        return posn-1;
+    }
 }//class AIPlayer

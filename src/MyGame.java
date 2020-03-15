@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class MyGame implements GameLogic
@@ -44,14 +45,14 @@ public class MyGame implements GameLogic
         if(status == Status.ONE) // since the human played its now AI's turn
         {
             myBoard[row][col] = Status.ONE; // set to human player at that location on the board
-            findWinner(Status.ONE, row, col); // check for the winner
+            findWinner(status, row, col); // check for the winner
             status = Status.TWO;
             computer.lastMove(col);
         }
         else // AI played and now its human's turn
         {
             myBoard[row][col] = Status.TWO; // set to AI player at that location on the board
-            findWinner(Status.TWO, row, col); // check for the winner
+            findWinner(status, row, col); // check for the winner
             status = Status.ONE;
             human.lastMove(col);
         }
@@ -145,7 +146,7 @@ public class MyGame implements GameLogic
     {
         for (int i = myBoard.length-1; i >= 3; i--)
         {
-            for (int j = myBoard.length-3; j >= 0; j--)
+            for (int j = myBoard.length-4; j >= 0; j--)
             {
                 if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i-1][j+1]
                         && myBoard[i][j]== myBoard[i-2][j+2] && myBoard[i][j] == myBoard[i-3][j+3])
@@ -217,12 +218,8 @@ public class MyGame implements GameLogic
     private void initializeBoard(int size)
     {
         myBoard = new Status[size][size];
-        for (int i = 0; i < size ; i++)
-        {
-            for (int j = 0; j < size; j++)
-            {
-                myBoard[i][j] = Status.NEITHER;
-            }
+        for (Status[] s : myBoard) {
+            Arrays.fill(s, Status.NEITHER);
         }
     }// end initializeBoard
 }// class MyGame
