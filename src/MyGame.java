@@ -8,11 +8,13 @@ public class MyGame implements GameLogic
     private Status status; // if ONE then its human's turn to play
                            // if TWO then AI's turn
     private Status[][] myBoard; // to keep track of our board/game
+    private boolean foundWinner;
 
     public MyGame()
     {
         computer = new AIPlayer();
         human = new HumanPlayer();
+        foundWinner = false;
     }
 
     /* runGame
@@ -29,8 +31,6 @@ public class MyGame implements GameLogic
 
         // chooses which player starts the game
         choosePlayer();
-
-        // todo:determine if the player wins or if there is a draw and then inform the player
     }// end runGame
 
     /* setAnswer
@@ -40,21 +40,21 @@ public class MyGame implements GameLogic
      */
     public void setAnswer(int col)
     {
-
         int row = findRow(col);
-        if(status == Status.ONE) // since the human played its now AI's turn
+        myBoard[row][col] = status; // load the board with the last move
+        findWinner(status, row, col); // check for the winner
+
+        if(!foundWinner)
         {
-            myBoard[row][col] = Status.ONE; // set to human player at that location on the board
-            findWinner(status, row, col); // check for the winner
-            status = Status.TWO;
-            computer.lastMove(col);
-        }
-        else // AI played and now its human's turn
-        {
-            myBoard[row][col] = Status.TWO; // set to AI player at that location on the board
-            findWinner(status, row, col); // check for the winner
-            status = Status.ONE;
-            human.lastMove(col);
+            if (status == Status.ONE) // since the human played its now AI's turn
+            {
+                status = Status.TWO;
+                computer.lastMove(col);
+            } else // AI played and now its human's turn
+            {
+                status = Status.ONE;
+                human.lastMove(col);
+            }
         }
     }// setAnswer
 
@@ -93,6 +93,7 @@ public class MyGame implements GameLogic
                 {
                     human.gameOver(st);
                     computer.gameOver(st);
+                    foundWinner = true;
                 }
             }
         }
@@ -113,6 +114,7 @@ public class MyGame implements GameLogic
                 {
                     human.gameOver(st);
                     computer.gameOver(st);
+                    foundWinner = true;
                 }
             }
         }
@@ -133,6 +135,7 @@ public class MyGame implements GameLogic
                 {
                     human.gameOver(st);
                     computer.gameOver(st);
+                    foundWinner = true;
                 }
             }
         }
@@ -153,6 +156,7 @@ public class MyGame implements GameLogic
                 {
                     human.gameOver(st);
                     computer.gameOver(st);
+                    foundWinner = true;
                 }
             }
         }

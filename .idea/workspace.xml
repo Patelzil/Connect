@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89db6aa3-fe76-42f5-8417-e034e0633adc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/A3GUI/Circle.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A3GUI/CircleRed.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A3GUI/CircleYellow.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Circle.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CircleRed.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CircleYellow.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SwingGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/A3Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/A3Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HumanPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,13 +31,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1YQLiI5GZ7Dne0pm6TPMqX0zwgf" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -86,7 +98,8 @@
       <workItem from="1584050850092" duration="13828000" />
       <workItem from="1584078833226" duration="8548000" />
       <workItem from="1584165773679" duration="4035000" />
-      <workItem from="1584307809681" duration="2708000" />
+      <workItem from="1584307809681" duration="6383000" />
+      <workItem from="1584325808608" duration="842000" />
     </task>
     <task id="LOCAL-00001" summary="Created the Human and AI player classes and its layout">
       <created>1583200512818</created>
@@ -186,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584169765614</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added board to the AI">
+      <created>1584310765914</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1584310765914</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +226,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Created the Human and AI player classes and its layout" />
     <MESSAGE value="Set the main class up to run the game." />
     <MESSAGE value="MyGame created, it implements GameLogic" />
@@ -219,33 +240,38 @@
     <MESSAGE value="Board added in MyGame to track for the winner" />
     <MESSAGE value="Able to find the winner" />
     <MESSAGE value="Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+    <MESSAGE value="Added board to the AI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added board to the AI" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="2" key="#Notifications" timestamp="1583202838910">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="2" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1583202838910" />
-    <state x="117" y="0" key="CommitChangelistDialog2" timestamp="1584169765006">
+    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1584314601077">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="117" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584169765006" />
-    <state width="1237" height="75" key="GridCell.Tab.0.bottom" timestamp="1584310604175">
+    <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1584314601077" />
+    <state x="117" y="0" key="CommitChangelistDialog2" timestamp="1584310765195">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="75" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584310604175" />
-    <state width="1237" height="75" key="GridCell.Tab.0.center" timestamp="1584310604175">
+    <state x="117" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584310765195" />
+    <state width="1237" height="5" key="GridCell.Tab.0.bottom" timestamp="1584326595382">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="75" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584310604175" />
-    <state width="1237" height="75" key="GridCell.Tab.0.left" timestamp="1584310604159">
+    <state width="1237" height="5" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584326595382" />
+    <state width="1237" height="5" key="GridCell.Tab.0.center" timestamp="1584326595381">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="75" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584310604159" />
-    <state width="1237" height="75" key="GridCell.Tab.0.right" timestamp="1584310604175">
+    <state width="1237" height="5" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584326595381" />
+    <state width="1237" height="5" key="GridCell.Tab.0.left" timestamp="1584326595381">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="75" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584310604175" />
+    <state width="1237" height="5" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584326595381" />
+    <state width="1237" height="5" key="GridCell.Tab.0.right" timestamp="1584326595382">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="5" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584326595382" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1584169831910">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -266,24 +292,13 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="76" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1584169773772" />
-    <state x="349" y="168" key="com.intellij.ide.util.TipDialog" timestamp="1584307816083">
+    <state x="349" y="168" key="com.intellij.ide.util.TipDialog" timestamp="1584325809587">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="349" y="168" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584307816083" />
+    <state x="349" y="168" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1584325809587" />
     <state x="397" y="160" key="extract.method.dialog" timestamp="1584166287702">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="397" y="160" key="extract.method.dialog/0.0.1280.680@0.0.1280.680" timestamp="1584166287702" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/AIPlayer.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

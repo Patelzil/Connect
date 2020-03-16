@@ -17,11 +17,11 @@ public class A3Main
 {
     public static void main(String[] args)
     {
-        System.out.println("The game starts...");
+        System.out.println("The game starts...\n");
 
         MyGame theGame = new MyGame();
         theGame.runGame();
+        System.out.println("\nEnd of the Game");
 
-        System.out.println("End of Processing");
     }// end main
 }// class A3Main

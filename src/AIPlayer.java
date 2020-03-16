@@ -41,7 +41,7 @@ public class AIPlayer implements Player
 
     /* setInfo
      * Purpose - called for each player before the game starts
-     *         sends player basic info about the game
+     *         sends player basic info about the game and initializes the board
      * @param size- dimension of the board with the size parameter
      * @param gl - for the Player to communicate with this class
      *

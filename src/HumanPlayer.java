@@ -4,7 +4,7 @@ public class HumanPlayer implements Human, Player
     private GameLogic game;
     private UI actualHuman; // ui to be used
 
-    public HumanPlayer(){ actualHuman = new TextUI(); }
+    public HumanPlayer(){ actualHuman = new SwingGUI(); }
 
     /* setAnswer
      * purpose - sends the column chosen by the actual
@@ -34,16 +34,7 @@ public class HumanPlayer implements Human, Player
      */
     public void gameOver(Status winner)
     {
-        if(winner == Status.ONE)
-        {
-            System.out.println("Player one wins!");
-            System.exit(0);
-        }
-        else if(winner == Status.TWO)
-        {
-            System.out.println("Player two wins!");
-            System.exit(0);
-        }
+        actualHuman.gameOver(winner);
     }// end gameOver
 
 
@@ -56,7 +47,6 @@ public class HumanPlayer implements Human, Player
      */
     public void setInfo(int size, GameLogic gl)
     {
-        //boardSize = size;
         game = gl;
         actualHuman.setInfo(this,size);
     }// end setInfo
