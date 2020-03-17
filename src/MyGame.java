@@ -24,7 +24,7 @@ public class MyGame implements GameLogic
     {
         // randomly generates the board size(btn 6-12)
         // and send the information to the players
-        int size = 5;
+        int size = generateBoardSize();
         initializeBoard(size);
         computer.setInfo(size, this);
         human.setInfo(size,this);
@@ -79,33 +79,6 @@ public class MyGame implements GameLogic
         // check if the game is draw
         drawGame();
     }// end findWinner
-
-    /* drawGame
-     * Purpose - check for draw between the 2 players
-     */
-    private void drawGame()
-    {
-        boolean value = false;
-        for(Status curr: myBoard[0])
-        {
-            if(curr != Status.NEITHER)
-            {
-                value = true;
-            }
-            else
-            {
-                value = false;
-                break;
-            }
-        }
-
-        if(value)
-        {
-            human.gameOver(Status.NEITHER);
-            computer.gameOver(Status.NEITHER);
-            foundWinner = true;
-        }
-    }
 
     /* checkVertically
      * Purpose - checks the board vertically (from bottom of the board going up)
@@ -201,6 +174,34 @@ public class MyGame implements GameLogic
             }
         }
     }// end checkRightDiagonal
+
+    /* drawGame
+     * Purpose - check for draw between the 2 players
+     */
+    private void drawGame()
+    {
+        boolean value = false;
+        for(Status curr: myBoard[0])
+        {
+            if(curr != Status.NEITHER)
+            {
+                value = true;
+            }
+            else
+            {
+                value = false;
+                break;
+            }
+        }
+        // since no winner was found and all the points on the top
+        // of the board are either ONE or TWO then the board is filled and hence draw
+        if(value)
+        {
+            human.gameOver(Status.NEITHER);
+            computer.gameOver(Status.NEITHER);
+            foundWinner = true;
+        }
+    }// end drawGame
 
     /* findRow
      * Purpose - finds the position of last play when it is dropped in a column.

@@ -6,9 +6,11 @@ public class AIPlayer implements Player
     private int boardSize;
     private GameLogic game;
     private Status[][] AIBoard;
+    private int value;
 
     /* lastMove
      * Purpose - chooses the column to make a move and then sends to the GameLogic
+     *          updates the board
      * @param col - the column of the last move made by the opposite player
      *
      */
@@ -20,15 +22,15 @@ public class AIPlayer implements Player
             AIBoard[posn][col] = Status.ONE; // this is the human's move, so it's ONE.
         }
 
-        int num = playColumn(col);
-        while (!verifyCol(num))
+        playColumn();
+        while (!verifyCol(value))
         {
-            num = playColumn(col);
+            playColumn();
         }
 
-        int row = drop(num);
-        AIBoard[row][num] = Status.TWO;
-        game.setAnswer(num);
+        int row = drop(value);
+        AIBoard[row][value] = Status.TWO;
+        game.setAnswer(value);
     }// end lastMove
 
     /* gameOver
@@ -62,12 +64,65 @@ public class AIPlayer implements Player
      *          depending on the situation
      * @param col - column the human player played at last
      */
-    private int playColumn(int col)
+    private void playColumn()
     {
         Random ran = new Random();
-        return ( ran.nextInt(boardSize));
-//        return 0;
+        value =  ran.nextInt(boardSize);
+
+        defVertical();
+        defHorizontal();
     }// end playColumn
+
+    private void defVertical()
+    {
+
+        for (int i = AIBoard.length-1; i >= 3; i--)
+        {
+            for (int j = AIBoard.length-1; j >= 0; j--)
+            {
+                if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i-1][j]
+                        && AIBoard[i][j]== AIBoard[i-2][j] && AIBoard[i-3][j] == Status.NEITHER)
+                {
+                    value = j;
+                    break;
+                }
+            }
+        }
+    }// end defVertical
+
+    private void defHorizontal()
+    {
+        for (int i = AIBoard.length-1; i >= 0; i--)
+        {
+            for (int j = AIBoard.length-1; j >= 3; j--)
+            {
+                if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i][j-1]
+                        && AIBoard[i][j]== AIBoard[i][j-2] && AIBoard[i][j-3] == Status.NEITHER)
+                {
+                    value = j-3;
+                    break;
+                }
+                else if(AIBoard[i][j] == Status.NEITHER && AIBoard[i][j-1] == Status.ONE
+                        && AIBoard[i][j-1] == AIBoard[i][j-2] && AIBoard[i][j-1]== AIBoard[i][j-3])
+                {
+                    value = j;
+                    break;
+                }
+                else if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i][j-2]
+                        && AIBoard[i][j]== AIBoard[i][j-3] && AIBoard[i][j-1] == Status.NEITHER)
+                {
+                    value = j-1;
+                    break;
+                }
+                else if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i][j-1]
+                        && AIBoard[i][j]== AIBoard[i][j-3] && AIBoard[i][j-2] == Status.NEITHER)
+                {
+                    value = j-2;
+                    break;
+                }
+            }
+        }
+    }// end defHorizontal
 
     /**
      * verifyCol - private helper method to determine if an integer is a valid
