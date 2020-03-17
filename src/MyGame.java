@@ -24,7 +24,7 @@ public class MyGame implements GameLogic
     {
         // randomly generates the board size(btn 6-12)
         // and send the information to the players
-        int size = generateBoardSize();
+        int size = 5;
         initializeBoard(size);
         computer.setInfo(size, this);
         human.setInfo(size,this);
@@ -76,7 +76,36 @@ public class MyGame implements GameLogic
         checkLeftDiagonal(s);
         // check for diagonal (moving upwards towards the right)
         checkRightDiagonal(s);
+        // check if the game is draw
+        drawGame();
     }// end findWinner
+
+    /* drawGame
+     * Purpose - check for draw between the 2 players
+     */
+    private void drawGame()
+    {
+        boolean value = false;
+        for(Status curr: myBoard[0])
+        {
+            if(curr != Status.NEITHER)
+            {
+                value = true;
+            }
+            else
+            {
+                value = false;
+                break;
+            }
+        }
+
+        if(value)
+        {
+            human.gameOver(Status.NEITHER);
+            computer.gameOver(Status.NEITHER);
+            foundWinner = true;
+        }
+    }
 
     /* checkVertically
      * Purpose - checks the board vertically (from bottom of the board going up)
@@ -84,17 +113,28 @@ public class MyGame implements GameLogic
      */
     private void checkVertically(Status st, int row, int col)
     {
-        for (int i = myBoard.length-1; i >= 3; i--)
+//        for (int i = myBoard.length-1; i >= 3; i--)
+//        {
+//            for (int j = myBoard.length-1; j >= 0; j--)
+//            {
+//                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i-1][j]
+//                        && myBoard[i][j]== myBoard[i-2][j] && myBoard[i][j] == myBoard[i-3][j])
+//                {
+//                    human.gameOver(st);
+//                    computer.gameOver(st);
+//                    foundWinner = true;
+//                }
+//            }
+//        }
+        // just need to check below the one played last
+        if(row <= myBoard.length-4)
         {
-            for (int j = myBoard.length-1; j >= 0; j--)
+            if(myBoard[row][col] == st && myBoard[row][col] == myBoard[row+1][col]
+                    && myBoard[row][col]== myBoard[row+2][col] && myBoard[row][col] == myBoard[row+3][col])
             {
-                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i-1][j]
-                        && myBoard[i][j]== myBoard[i-2][j] && myBoard[i][j] == myBoard[i-3][j])
-                {
-                    human.gameOver(st);
-                    computer.gameOver(st);
-                    foundWinner = true;
-                }
+                human.gameOver(st);
+                computer.gameOver(st);
+                foundWinner = true;
             }
         }
     }// end checkVertically
