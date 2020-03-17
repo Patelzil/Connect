@@ -6,7 +6,7 @@
 // ASSIGNMENT	    : assignment 3
 // QUESTION     	: question 1
 //
-// REMARKS: enable a user to play a game of “Connect”, where players
+// REMARKS: enable a user to play a game of connect, where players
 //          alternate dropping coloured playing pieces into a grid to
 //          get four of their pieces in a line (horizontal, diagonal or vertical)
 //          to win

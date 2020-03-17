@@ -86,29 +86,12 @@ public class MyGame implements GameLogic
      */
     private void checkVertically(Status st, int row, int col)
     {
-//        for (int i = myBoard.length-1; i >= 3; i--)
-//        {
-//            for (int j = myBoard.length-1; j >= 0; j--)
-//            {
-//                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i-1][j]
-//                        && myBoard[i][j]== myBoard[i-2][j] && myBoard[i][j] == myBoard[i-3][j])
-//                {
-//                    human.gameOver(st);
-//                    computer.gameOver(st);
-//                    foundWinner = true;
-//                }
-//            }
-//        }
-        // just need to check below the one played last
-        if(row <= myBoard.length-4)
+        if(row <= myBoard.length-4 && myBoard[row][col] == st && myBoard[row][col] == myBoard[row+1][col]
+                && myBoard[row][col]== myBoard[row+2][col] && myBoard[row][col] == myBoard[row+3][col])
         {
-            if(myBoard[row][col] == st && myBoard[row][col] == myBoard[row+1][col]
-                    && myBoard[row][col]== myBoard[row+2][col] && myBoard[row][col] == myBoard[row+3][col])
-            {
-                human.gameOver(st);
-                computer.gameOver(st);
-                foundWinner = true;
-            }
+            human.gameOver(st);
+            computer.gameOver(st);
+            foundWinner = true;
         }
     }// end checkVertically
 
