@@ -96,7 +96,7 @@
       <workItem from="1584325808608" duration="1370000" />
       <workItem from="1584327207274" duration="4602000" />
       <workItem from="1584384412691" duration="841000" />
-      <workItem from="1584427473634" duration="7360000" />
+      <workItem from="1584427473634" duration="8853000" />
     </task>
     <task id="LOCAL-00001" summary="Created the Human and AI player classes and its layout">
       <created>1583200512818</created>
@@ -217,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584431674416</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="AI able to be play defensive(vertically and horizontally only)">
+      <created>1584435922075</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1584435922075</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +261,8 @@
     <MESSAGE value="Added board to the AI" />
     <MESSAGE value="Added a simple GUI" />
     <MESSAGE value="Able to successfully check if the game was a draw" />
-    <option name="LAST_COMMIT_MESSAGE" value="Able to successfully check if the game was a draw" />
+    <MESSAGE value="AI able to be play defensive(vertically and horizontally only)" />
+    <option name="LAST_COMMIT_MESSAGE" value="AI able to be play defensive(vertically and horizontally only)" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="2" key="#Notifications" timestamp="1583202838910">
@@ -265,26 +273,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1584314601077" />
-    <state x="117" y="0" key="CommitChangelistDialog2" timestamp="1584431673400">
+    <state x="117" y="0" key="CommitChangelistDialog2" timestamp="1584435921559">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="117" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584431673400" />
-    <state width="1237" height="13" key="GridCell.Tab.0.bottom" timestamp="1584435837017">
+    <state x="117" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1584435921559" />
+    <state width="1237" height="13" key="GridCell.Tab.0.bottom" timestamp="1584437275581">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="13" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584435837017" />
-    <state width="1237" height="13" key="GridCell.Tab.0.center" timestamp="1584435837017">
+    <state width="1237" height="13" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1584437275581" />
+    <state width="1237" height="13" key="GridCell.Tab.0.center" timestamp="1584437275581">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="13" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584435837017" />
-    <state width="1237" height="13" key="GridCell.Tab.0.left" timestamp="1584435837017">
+    <state width="1237" height="13" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1584437275581" />
+    <state width="1237" height="13" key="GridCell.Tab.0.left" timestamp="1584437275581">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="13" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584435837017" />
-    <state width="1237" height="13" key="GridCell.Tab.0.right" timestamp="1584435837017">
+    <state width="1237" height="13" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1584437275581" />
+    <state width="1237" height="13" key="GridCell.Tab.0.right" timestamp="1584437275581">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="13" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584435837017" />
+    <state width="1237" height="13" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1584437275581" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1584169831910">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

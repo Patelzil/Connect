@@ -66,12 +66,20 @@ public class AIPlayer implements Player
      */
     private void playColumn()
     {
+        // generate radomly a column to play at
         Random ran = new Random();
         value =  ran.nextInt(boardSize);
 
+        defensive();
+    }// end playColumn
+
+    private void defensive()
+    {
         defVertical();
         defHorizontal();
-    }// end playColumn
+        defLeftDiagonal();
+        defRightDiagonal();
+    }
 
     private void defVertical()
     {
@@ -123,6 +131,74 @@ public class AIPlayer implements Player
             }
         }
     }// end defHorizontal
+
+    private void defLeftDiagonal()
+    {
+        for (int i = AIBoard.length-1; i >= 3; i--)
+        {
+            for (int j = AIBoard.length-1; j >= 3; j--)
+            {
+                if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i-1][j-1]
+                        && AIBoard[i][j]== AIBoard[i-2][j-2] && AIBoard[i-3][j-3] == Status.NEITHER)
+                {
+                    value = j-3;
+                    break;
+                }
+                else if(AIBoard[i][j] == Status.NEITHER && AIBoard[i-1][j-1] == Status.ONE
+                        && AIBoard[i-1][j-1]== AIBoard[i-2][j-2] && AIBoard[i-2][j-2] == AIBoard[i-3][j-3])
+                {
+                    value = j;
+                    break;
+                }
+                else if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i-2][j-2]
+                        && AIBoard[i][j]== AIBoard[i-2][j-3] && AIBoard[i-1][j-1] == Status.NEITHER)
+                {
+                    value = j-1;
+                    break;
+                }
+                else if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i-1][j-1]
+                        && AIBoard[i][j]== AIBoard[i-3][j-3] && AIBoard[i-2][j-2] == Status.NEITHER)
+                {
+                    value = j-2;
+                    break;
+                }
+            }
+        }
+    }// end defLeftDiagonal
+
+    private void defRightDiagonal()
+    {
+        for (int i = AIBoard.length-1; i >= 3; i--)
+        {
+            for (int j = AIBoard.length-4; j >= 0; j--)
+            {
+                if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i-1][j+1]
+                        && AIBoard[i][j]== AIBoard[i-2][j+2] && AIBoard[i-3][j+3] == Status.NEITHER)
+                {
+                    value = j+3;
+                    break;
+                }
+                else if(AIBoard[i][j] == Status.NEITHER && AIBoard[i-1][j+1] == Status.ONE
+                        && AIBoard[i-1][j+1] == AIBoard[i-2][j+2] && AIBoard[i-1][j+1] == AIBoard[i-3][j+3])
+                {
+                    value = j;
+                    break;
+                }
+                else if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i-2][j+2]
+                        && AIBoard[i][j]== AIBoard[i-3][j+3] && AIBoard[i-1][j+1] == Status.NEITHER)
+                {
+                    value = j+1;
+                    break;
+                }
+                else if(AIBoard[i][j] == Status.ONE && AIBoard[i][j] == AIBoard[i-1][j+1]
+                        && AIBoard[i][j]== AIBoard[i-3][j+3] && AIBoard[i-2][j+2] == Status.NEITHER)
+                {
+                    value = j+2;
+                    break;
+                }
+            }
+        }
+    }// end defRightDiagonal
 
     /**
      * verifyCol - private helper method to determine if an integer is a valid

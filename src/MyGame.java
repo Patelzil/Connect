@@ -24,7 +24,7 @@ public class MyGame implements GameLogic
     {
         // randomly generates the board size(btn 6-12)
         // and send the information to the players
-        int size = generateBoardSize();
+        int size = 6;
         initializeBoard(size);
         computer.setInfo(size, this);
         human.setInfo(size,this);
@@ -181,25 +181,28 @@ public class MyGame implements GameLogic
     private void drawGame()
     {
         boolean value = false;
-        for(Status curr: myBoard[0])
+        if(!foundWinner)
         {
-            if(curr != Status.NEITHER)
+            for (Status curr : myBoard[0])
             {
-                value = true;
+                if (curr != Status.NEITHER)
+                {
+                    value = true;
+                }
+                else
+                {
+                    value = false;
+                    break;
+                }
             }
-            else
+            // since no winner was found and all the points on the top
+            // of the board are either ONE or TWO then the board is filled and hence draw
+            if (value)
             {
-                value = false;
-                break;
+                human.gameOver(Status.NEITHER);
+                computer.gameOver(Status.NEITHER);
+                foundWinner = true;
             }
-        }
-        // since no winner was found and all the points on the top
-        // of the board are either ONE or TWO then the board is filled and hence draw
-        if(value)
-        {
-            human.gameOver(Status.NEITHER);
-            computer.gameOver(Status.NEITHER);
-            foundWinner = true;
         }
     }// end drawGame
 
