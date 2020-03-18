@@ -1,3 +1,12 @@
+// CLASS: MyGame
+//
+// Author: Patel Zil, 7876456
+//
+// REMARKS: Manages the game by receiving and sending messages to the AI and human.
+//          Checks for win, lose and draw
+//
+//-----------------------------------------
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -8,7 +17,7 @@ public class MyGame implements GameLogic
     private Status status; // if ONE then its human's turn to play
                            // if TWO then AI's turn
     private Status[][] myBoard; // to keep track of our board/game
-    private boolean foundWinner;
+    private boolean foundWinner; // remains false until a winner is found and the game quits
 
     public MyGame()
     {
@@ -24,7 +33,7 @@ public class MyGame implements GameLogic
     {
         // randomly generates the board size(btn 6-12)
         // and send the information to the players
-        int size = 6;
+        int size = generateBoardSize();
         initializeBoard(size);
         computer.setInfo(size, this);
         human.setInfo(size,this);

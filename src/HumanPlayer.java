@@ -1,3 +1,11 @@
+// CLASS: HumanPlayer
+//
+// Author: Patel Zil, 7876456
+//
+// REMARKS: Interacts with the GameLogic and the UI(from where we get the human's play)
+//
+//-----------------------------------------
+
 public class HumanPlayer implements Human, Player
 {
     //private int boardSize;

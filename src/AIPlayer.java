@@ -1,3 +1,13 @@
+// CLASS: AIPlayer
+//
+// Author: Patel Zil, 7876456
+//
+// REMARKS: Interacts with the GameLogic to receive the humans input
+//          and plays at the right spot to defend the human from winning,
+//          if not then tries to win or else plays at a random spot.
+//
+//-----------------------------------------
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -101,10 +111,10 @@ public class AIPlayer implements Player
     /* verticalCheck
      * Purpose - checks if AI can play on a column to make itself win or not let
      *         human win vertically
+     * @param st - what player we are searching for the AI's next move
      */
     private void verticalCheck(Status st)
     {
-
         for (int i = AIBoard.length-1; i >= 3; i--)
         {
             for (int j = AIBoard.length-1; j >= 0; j--)
@@ -122,6 +132,7 @@ public class AIPlayer implements Player
     /* horizontalCheck
      * Purpose - checks if AI can play on a column to make itself win or not let
      *         human win horizontally
+     * @param st - what player we are searching for the AI's next move
      */
     private void horizontalCheck(Status st)
     {
@@ -160,6 +171,7 @@ public class AIPlayer implements Player
     /* leftDiagonalCheck
      * Purpose - checks if AI can play on a column to make itself win or not let
      *         human win diagonally (from bottom right to top left)
+     * @param st - what player we are searching for the AI's next move
      */
     private void leftDiagonalCheck(Status st)
     {
@@ -198,6 +210,7 @@ public class AIPlayer implements Player
     /* rightDiagonalCheck
      * Purpose - checks if AI can play on a column to make itself win or not let
      *         human win diagonally (from bottom left to top right)
+     * @param st - what player we are searching for the AI's next move
      */
     private void rightDiagonalCheck(Status st)
     {
