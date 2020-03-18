@@ -71,10 +71,13 @@ public class AIPlayer implements Player
         value =  ran.nextInt(boardSize);
 
         offensive();
-
         defensive();
     }// end playColumn
 
+    /* defensive
+     * Purpose - if there is a place where Human could play and would result in a loss (for the AI)
+     *          then the AI would play there
+     */
     private void defensive()
     {
         verticalCheck(Status.ONE);
@@ -83,6 +86,10 @@ public class AIPlayer implements Player
         rightDiagonalCheck(Status.ONE);
     }// end defensive
 
+    /* offensive
+     * Purpose - if there is a spot where the AI could play that would result in a win (for the AI)
+     *           it must play there only after having defended the Human from winning
+     */
     private void offensive()
     {
         verticalCheck(Status.TWO);
@@ -91,6 +98,10 @@ public class AIPlayer implements Player
         rightDiagonalCheck(Status.TWO);
     }// end offensive
 
+    /* verticalCheck
+     * Purpose - checks if AI can play on a column to make itself win or not let
+     *         human win vertically
+     */
     private void verticalCheck(Status st)
     {
 
@@ -98,8 +109,8 @@ public class AIPlayer implements Player
         {
             for (int j = AIBoard.length-1; j >= 0; j--)
             {
-                if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i-1][j]
-                        && AIBoard[i][j]== AIBoard[i-2][j] && AIBoard[i-3][j] == Status.NEITHER)
+                if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i - 1][j])
+                        && (AIBoard[i][j] == AIBoard[i - 2][j]) && (AIBoard[i - 3][j] == Status.NEITHER))
                 {
                     value = j;
                     break;
@@ -108,32 +119,36 @@ public class AIPlayer implements Player
         }
     }// end verticalCheck
 
+    /* horizontalCheck
+     * Purpose - checks if AI can play on a column to make itself win or not let
+     *         human win horizontally
+     */
     private void horizontalCheck(Status st)
     {
         for (int i = AIBoard.length-1; i >= 0; i--)
         {
             for (int j = AIBoard.length-1; j >= 3; j--)
             {
-                if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i][j-1]
-                        && AIBoard[i][j]== AIBoard[i][j-2] && AIBoard[i][j-3] == Status.NEITHER)
+                if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 1])
+                        && (AIBoard[i][j] == AIBoard[i][j - 2]) && (AIBoard[i][j - 3] == Status.NEITHER))
                 {
                     value = j-3;
                     break;
                 }
-                else if(AIBoard[i][j] == Status.NEITHER && AIBoard[i][j-1] == st
-                        && AIBoard[i][j-1] == AIBoard[i][j-2] && AIBoard[i][j-1]== AIBoard[i][j-3])
+                else if((AIBoard[i][j] == Status.NEITHER) && (AIBoard[i][j - 1] == st)
+                        && (AIBoard[i][j - 1] == AIBoard[i][j - 2]) && (AIBoard[i][j - 1] == AIBoard[i][j - 3]))
                 {
                     value = j;
                     break;
                 }
-                else if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i][j-2]
-                        && AIBoard[i][j]== AIBoard[i][j-3] && AIBoard[i][j-1] == Status.NEITHER)
+                else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 2])
+                        && (AIBoard[i][j] == AIBoard[i][j - 3]) && (AIBoard[i][j - 1] == Status.NEITHER))
                 {
                     value = j-1;
                     break;
                 }
-                else if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i][j-1]
-                        && AIBoard[i][j]== AIBoard[i][j-3] && AIBoard[i][j-2] == Status.NEITHER)
+                else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 1])
+                        && (AIBoard[i][j] == AIBoard[i][j - 3]) && (AIBoard[i][j - 2] == Status.NEITHER))
                 {
                     value = j-2;
                     break;
@@ -142,32 +157,36 @@ public class AIPlayer implements Player
         }
     }// end horizontalCheck
 
+    /* leftDiagonalCheck
+     * Purpose - checks if AI can play on a column to make itself win or not let
+     *         human win diagonally (from bottom right to top left)
+     */
     private void leftDiagonalCheck(Status st)
     {
         for (int i = AIBoard.length-1; i >= 3; i--)
         {
             for (int j = AIBoard.length-1; j >= 3; j--)
             {
-                if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i-1][j-1] && AIBoard[i-2][j-3] != Status.NEITHER
-                        && AIBoard[i][j]== AIBoard[i-2][j-2] && AIBoard[i-3][j-3] == Status.NEITHER)
+                if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i - 1][j - 1]) && (AIBoard[i - 2][j - 3] != Status.NEITHER)
+                        && (AIBoard[i][j] == AIBoard[i - 2][j - 2]) && (AIBoard[i - 3][j - 3] == Status.NEITHER))
                 {
                     value = j-3;
                     break;
                 }
-                else if(AIBoard[i][j] == Status.NEITHER && AIBoard[i-1][j-1] == st
-                        && AIBoard[i-1][j-1]== AIBoard[i-2][j-2] && AIBoard[i-2][j-2] == AIBoard[i-3][j-3])
+                else if((AIBoard[i][j] == Status.NEITHER) && (AIBoard[i - 1][j - 1] == st)
+                        && (AIBoard[i - 1][j - 1] == AIBoard[i - 2][j - 2]) && (AIBoard[i - 2][j - 2] == AIBoard[i - 3][j - 3]))
                 {
                     value = j;
                     break;
                 }
-                else if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i-2][j-2] && AIBoard[i][j-1] != Status.NEITHER
-                        && AIBoard[i][j]== AIBoard[i-2][j-3] && AIBoard[i-1][j-1] == Status.NEITHER)
+                else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i - 2][j - 2]) && (AIBoard[i][j - 1] != Status.NEITHER)
+                        && (AIBoard[i][j] == AIBoard[i - 2][j - 3]) && (AIBoard[i - 1][j - 1] == Status.NEITHER))
                 {
                     value = j-1;
                     break;
                 }
-                else if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i-1][j-1] && AIBoard[i-1][j-2] != Status.NEITHER
-                        && AIBoard[i][j]== AIBoard[i-3][j-3] && AIBoard[i-2][j-2] == Status.NEITHER)
+                else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i - 1][j - 1]) && (AIBoard[i - 1][j - 2] != Status.NEITHER)
+                        && (AIBoard[i][j] == AIBoard[i - 3][j - 3]) && (AIBoard[i - 2][j - 2] == Status.NEITHER))
                 {
                     value = j-2;
                     break;
@@ -176,32 +195,36 @@ public class AIPlayer implements Player
         }
     }// end leftDiagonalCheck
 
+    /* rightDiagonalCheck
+     * Purpose - checks if AI can play on a column to make itself win or not let
+     *         human win diagonally (from bottom left to top right)
+     */
     private void rightDiagonalCheck(Status st)
     {
         for (int i = AIBoard.length-1; i >= 3; i--)
         {
             for (int j = AIBoard.length-4; j >= 0; j--)
             {
-                if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i-1][j+1] && AIBoard[i][j]== AIBoard[i-2][j+2]
-                        && AIBoard[i-2][j+3] != Status.NEITHER && AIBoard[i-3][j+3] == Status.NEITHER)
+                if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i - 1][j + 1]) && (AIBoard[i][j] == AIBoard[i - 2][j + 2])
+                        && (AIBoard[i - 2][j + 3] != Status.NEITHER) && (AIBoard[i - 3][j + 3] == Status.NEITHER))
                 {
                     value = j+3;
                     break;
                 }
-                else if(AIBoard[i][j] == Status.NEITHER && AIBoard[i-1][j+1] == st
-                        && AIBoard[i-1][j+1] == AIBoard[i-2][j+2] && AIBoard[i-1][j+1] == AIBoard[i-3][j+3])
+                else if((AIBoard[i][j] == Status.NEITHER) && (AIBoard[i - 1][j + 1] == st)
+                        && (AIBoard[i - 1][j + 1] == AIBoard[i - 2][j + 2]) && (AIBoard[i - 1][j + 1] == AIBoard[i - 3][j + 3]))
                 {
                     value = j;
                     break;
                 }
-                else if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i-2][j+2] && AIBoard[i][j]== AIBoard[i-3][j+3]
-                        && AIBoard[i][j+1] != Status.NEITHER && AIBoard[i-1][j+1] == Status.NEITHER)
+                else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i - 2][j + 2]) && (AIBoard[i][j] == AIBoard[i - 3][j + 3])
+                        && (AIBoard[i][j + 1] != Status.NEITHER) && (AIBoard[i - 1][j + 1] == Status.NEITHER))
                 {
                     value = j+1;
                     break;
                 }
-                else if(AIBoard[i][j] == st && AIBoard[i][j] == AIBoard[i-1][j+1] && AIBoard[i][j]== AIBoard[i-3][j+3]
-                        && AIBoard[i-1][j+2] != Status.NEITHER && AIBoard[i-2][j+2] == Status.NEITHER)
+                else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i - 1][j + 1]) && (AIBoard[i][j] == AIBoard[i - 3][j + 3])
+                        && (AIBoard[i - 1][j + 2] != Status.NEITHER) && (AIBoard[i - 2][j + 2] == Status.NEITHER))
                 {
                     value = j+2;
                     break;
@@ -216,7 +239,8 @@ public class AIPlayer implements Player
      * @param col - integer (potential column number)
      * @return - is the column valid?
      */
-    private boolean verifyCol(int col) {
+    private boolean verifyCol(int col)
+    {
         return (col >= 0 && col < AIBoard[0].length && AIBoard[0][col] == Status.NEITHER);
     }
 

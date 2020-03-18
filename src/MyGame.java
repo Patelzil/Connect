@@ -86,8 +86,8 @@ public class MyGame implements GameLogic
      */
     private void checkVertically(Status st, int row, int col)
     {
-        if(row <= myBoard.length-4 && myBoard[row][col] == st && myBoard[row][col] == myBoard[row+1][col]
-                && myBoard[row][col]== myBoard[row+2][col] && myBoard[row][col] == myBoard[row+3][col])
+        if((row <= (myBoard.length - 4)) && (myBoard[row][col] == st) && (myBoard[row][col] == myBoard[row + 1][col])
+                && (myBoard[row][col] == myBoard[row + 2][col]) && (myBoard[row][col] == myBoard[row + 3][col]))
         {
             human.gameOver(st);
             computer.gameOver(st);
@@ -105,8 +105,8 @@ public class MyGame implements GameLogic
         {
             for (int j = myBoard.length-1; j >= 3; j--)
             {
-                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i][j-1]
-                        && myBoard[i][j]== myBoard[i][j-2] && myBoard[i][j] == myBoard[i][j-3])
+                if((myBoard[i][j] == st) && (myBoard[i][j] == myBoard[i][j - 1])
+                        && (myBoard[i][j] == myBoard[i][j - 2]) && (myBoard[i][j] == myBoard[i][j - 3]))
                 {
                     human.gameOver(st);
                     computer.gameOver(st);
@@ -126,8 +126,8 @@ public class MyGame implements GameLogic
         {
             for (int j = myBoard.length-1; j >= 3; j--)
             {
-                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i-1][j-1]
-                        && myBoard[i][j]== myBoard[i-2][j-2] && myBoard[i][j] == myBoard[i-3][j-3])
+                if((myBoard[i][j] == st) && (myBoard[i][j] == myBoard[i - 1][j - 1])
+                        && (myBoard[i][j] == myBoard[i - 2][j - 2]) && (myBoard[i][j] == myBoard[i - 3][j - 3]))
                 {
                     human.gameOver(st);
                     computer.gameOver(st);
@@ -147,8 +147,8 @@ public class MyGame implements GameLogic
         {
             for (int j = myBoard.length-4; j >= 0; j--)
             {
-                if(myBoard[i][j] == st && myBoard[i][j] == myBoard[i-1][j+1]
-                        && myBoard[i][j]== myBoard[i-2][j+2] && myBoard[i][j] == myBoard[i-3][j+3])
+                if((myBoard[i][j] == st) && (myBoard[i][j] == myBoard[i - 1][j + 1])
+                        && (myBoard[i][j] == myBoard[i - 2][j + 2]) && (myBoard[i][j] == myBoard[i - 3][j + 3]))
                 {
                     human.gameOver(st);
                     computer.gameOver(st);
