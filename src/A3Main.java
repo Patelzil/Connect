@@ -6,7 +6,7 @@
 // ASSIGNMENT	    : assignment 3
 // QUESTION     	: question 1
 //
-// REMARKS: enable a user to play a game of connect, where players
+// REMARKS: Enable a user to play a game of connect, where players
 //          alternate dropping coloured playing pieces into a grid to
 //          get four of their pieces in a line (horizontal, diagonal or vertical)
 //          to win
@@ -21,7 +21,7 @@ public class A3Main
 
         MyGame theGame = new MyGame();
         theGame.runGame();
-        System.out.println("\nEnd of the Game");
 
+        System.out.println("\nEnd of the Game");
     }// end main
 }// class A3Main

@@ -140,29 +140,59 @@ public class AIPlayer implements Player
         {
             for (int j = AIBoard.length-1; j >= 3; j--)
             {
-                if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 1])
-                        && (AIBoard[i][j] == AIBoard[i][j - 2]) && (AIBoard[i][j - 3] == Status.NEITHER))
+                if(i==AIBoard.length-1)
                 {
-                    value = j-3;
-                    break;
+                    if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 1])
+                            && (AIBoard[i][j] == AIBoard[i][j - 2]) && (AIBoard[i][j - 3] == Status.NEITHER))
+                    {
+                        value = j-3;
+                        break;
+                    }
+                    else if((AIBoard[i][j] == Status.NEITHER) && (AIBoard[i][j - 1] == st)
+                            && (AIBoard[i][j - 1] == AIBoard[i][j - 2]) && (AIBoard[i][j - 1] == AIBoard[i][j - 3]))
+                    {
+                        value = j;
+                        break;
+                    }
+                    else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 2])
+                            && (AIBoard[i][j] == AIBoard[i][j - 3]) && (AIBoard[i][j - 1] == Status.NEITHER))
+                    {
+                        value = j-1;
+                        break;
+                    }
+                    else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 1])
+                            && (AIBoard[i][j] == AIBoard[i][j - 3]) && (AIBoard[i][j - 2] == Status.NEITHER))
+                    {
+                        value = j-2;
+                        break;
+                    }
                 }
-                else if((AIBoard[i][j] == Status.NEITHER) && (AIBoard[i][j - 1] == st)
-                        && (AIBoard[i][j - 1] == AIBoard[i][j - 2]) && (AIBoard[i][j - 1] == AIBoard[i][j - 3]))
+                else
                 {
-                    value = j;
-                    break;
-                }
-                else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 2])
-                        && (AIBoard[i][j] == AIBoard[i][j - 3]) && (AIBoard[i][j - 1] == Status.NEITHER))
-                {
-                    value = j-1;
-                    break;
-                }
-                else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 1])
-                        && (AIBoard[i][j] == AIBoard[i][j - 3]) && (AIBoard[i][j - 2] == Status.NEITHER))
-                {
-                    value = j-2;
-                    break;
+                    if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 1]) && (AIBoard[i][j] == AIBoard[i][j - 2])
+                            && (AIBoard[i+1][j - 3] != Status.NEITHER) && (AIBoard[i][j - 3] == Status.NEITHER))
+                    {
+                        value = j-3;
+                        break;
+                    }
+                    else if((AIBoard[i][j] == Status.NEITHER) && (AIBoard[i][j - 1] == st) && (AIBoard[i][j - 1] == AIBoard[i][j - 2])
+                            && (AIBoard[i+1][j] != Status.NEITHER) && (AIBoard[i][j - 1] == AIBoard[i][j - 3]))
+                    {
+                        value = j;
+                        break;
+                    }
+                    else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 2]) && (AIBoard[i][j] == AIBoard[i][j - 3])
+                            && (AIBoard[i+1][j-1] != Status.NEITHER)&& (AIBoard[i][j - 1] == Status.NEITHER))
+                    {
+                        value = j-1;
+                        break;
+                    }
+                    else if((AIBoard[i][j] == st) && (AIBoard[i][j] == AIBoard[i][j - 1]) && (AIBoard[i][j] == AIBoard[i][j - 3])
+                            && (AIBoard[i+1][j - 2] != Status.NEITHER) && (AIBoard[i][j - 2] == Status.NEITHER))
+                    {
+                        value = j-2;
+                        break;
+                    }
                 }
             }
         }
